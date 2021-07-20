@@ -171,7 +171,14 @@ public class INSERT extends JDialog {
 						else {
 							Statement stmt1=conn2.createStatement();
 							ResultSet rs1=stmt1.executeQuery("SELECT SerialID from Students where Email='"+textField_3.getText()+"';"); rs1.next();
-							if(!rs1.getString("SerialID").equals(S_ID)) JOptionPane.showMessageDialog(INSERT.this,"Email already exists","Record Duplicate Error",0);
+							if(rs1.getRow()!=0) {
+								if(rs1.getString("SerialID").equals(S_ID)){
+									Statement stmt2=conn2.createStatement();
+									query="UPDATE Students set Name='"+textField.getText()+"',Phone='"+textField_2.getText()+"',Email='"+textField_3.getText()+"',SEX='"+sex+"',Course='"+Course+"' WHERE SerialID='"+textField_1.getText()+"';";
+									stmt2.executeUpdate(query); stmt2.close();
+									JOptionPane.showMessageDialog(INSERT.this,"Record Successfully Updated","SUCCESS",1);
+								} else JOptionPane.showMessageDialog(INSERT.this,"Email already exists","Record Duplicate Error",0);
+							}
 							else {
 								Statement stmt2=conn2.createStatement();
 								query="UPDATE Students set Name='"+textField.getText()+"',Phone='"+textField_2.getText()+"',Email='"+textField_3.getText()+"',SEX='"+sex+"',Course='"+Course+"' WHERE SerialID='"+textField_1.getText()+"';";

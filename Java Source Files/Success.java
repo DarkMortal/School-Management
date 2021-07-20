@@ -132,6 +132,7 @@ public class Success extends JFrame {
 					
 					FileFilter imgFilter = new FileTypeFilter(".png","Portable Network Graphics");
 					FileFilter imgFilter2 = new FileTypeFilter(".jpg", "Joint Photographic Experts Group");
+					fileChooser.setAcceptAllFileFilterUsed(false);
 					fileChooser.addChoosableFileFilter(imgFilter);
 					fileChooser.addChoosableFileFilter(imgFilter2);
 					int check=fileChooser.showOpenDialog(Success.this);
@@ -341,6 +342,16 @@ public class Success extends JFrame {
 						stldata.setFont(fnt2);
 						stldata.setFillBackgroundColor(IndexedColors.GREEN.index);
 						stldata.setFillPattern(FillPatternType.THICK_VERT_BANDS);
+						CellStyle stldataCenter= wbk.createCellStyle();
+						stldataCenter.setAlignment(HorizontalAlignment.CENTER);
+						stldataCenter.setFont(fnt2);
+						stldataCenter.setFillBackgroundColor(IndexedColors.GREEN.index);
+						stldataCenter.setFillPattern(FillPatternType.THICK_VERT_BANDS);
+						CellStyle stldataRight= wbk.createCellStyle();
+						stldataRight.setAlignment(HorizontalAlignment.RIGHT);
+						stldataRight.setFont(fnt2);
+						stldataRight.setFillBackgroundColor(IndexedColors.GREEN.index);
+						stldataRight.setFillPattern(FillPatternType.THICK_VERT_BANDS);
 						Row rh=sh.createRow(0);
 						CellStyle date=wbk.createCellStyle();
 						date.setFont(fnt2);
@@ -358,10 +369,10 @@ public class Success extends JFrame {
 							Cell c0=row.createCell(0); c0.setCellValue(table.getValueAt(i,0).toString()); c0.setCellStyle(stldata);
 							Cell c1=row.createCell(1); c1.setCellValue(table.getValueAt(i,1).toString()); c1.setCellStyle(stldata);
 							Cell c2=row.createCell(2); c2.setCellValue(table.getValueAt(i,2).toString()); c2.setCellStyle(stldata);
-							Cell c3=row.createCell(3); c3.setCellValue(table.getValueAt(i,3).toString()); c3.setCellStyle(stldata);
-							Cell c4=row.createCell(4); c4.setCellValue(table.getValueAt(i,4).toString()); c4.setCellStyle(stldata);
+							Cell c3=row.createCell(3); c3.setCellValue(table.getValueAt(i,3).toString()); c3.setCellStyle(stldataRight);
+							Cell c4=row.createCell(4); c4.setCellValue(table.getValueAt(i,4).toString()); c4.setCellStyle(stldataCenter);
 							Cell dtr=row.createCell(5);	dtr.setCellStyle(date); dtr.setCellValue(table.getValueAt(i,5).toString());
-							Cell c6=row.createCell(6); c6.setCellValue(table.getValueAt(i,6).toString()); c6.setCellStyle(stldata);
+							Cell c6=row.createCell(6); c6.setCellValue(table.getValueAt(i,6).toString()); c6.setCellStyle(stldataCenter);
 						} isexp=true;
 						for(int i=0;i<column_names.length;i++) sh.autoSizeColumn(i);
 					}
