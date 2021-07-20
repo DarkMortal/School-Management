@@ -14,6 +14,11 @@
 * ### <ins><b>Adding resources to Java Project</b></ins>
   [This video will be helpful](https://www.youtube.com/watch?v=yksgU4SxoJY)
 
+## <ins><b>Database Structure</b></ins>  
+    ├── JavaSE
+    ├──── Students
+    └──── Teacher_LOGIN
+  
 ## __Maven Dependencies__
 
     <dependencies>
