@@ -44,3 +44,5 @@
       </dependency>
     </dependencies>
  
+# <ins>Command to install MySQL C++ connector in Ubuntu</ins>
+  sudo apt-get install libmysqlclient-dev
