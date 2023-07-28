@@ -1,6 +1,8 @@
 # <ins>School-Management using Java & C++</ins><br>
 ### JDBC Connector/J version 8.0.26 is used
 
+### This project contains 2 modules :- One for adding teachers to the database through the CLI (made using C++) and the other one for adding students to the database (made using Java)
+
 ## __Some common errors you might run into__
 * ### <ins><b>load_file(<filepath>)</b> returning null upon execution</ins><br>
   1. First you have to disable AppArmor for Linux (This error only comes in Linux)<br>You can read more on [how to disable AppArmor for mysql on Linux](https://askubuntu.com/questions/1144497/how-to-disable-apparmor-for-mysql)
